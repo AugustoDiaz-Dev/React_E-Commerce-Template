@@ -52,6 +52,7 @@ module.exports = {
         cardOverlay: "rgba(256,256,256,0.4)",
         lightTextGray: "#9ca0ab",
         myGreen: "#5ac31a",
+        myRed: "#ff0000",
         myOrange: "f28330"
       },
       screens: {

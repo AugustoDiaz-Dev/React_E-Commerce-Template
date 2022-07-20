@@ -1,33 +1,45 @@
 import i1 from '../img/i1.png'
-import f1 from '../img/f1.png'
-import c3 from '../img/c3.png'
-import fi1 from '../img/fi1.png'
+import d8 from '../img/d8.png'
+import postreHero1 from '../img/postreHero1.png'
+import c7 from '../img/c7.png'
 
 export const heroData = [
     {
-        id: 1, name: 'Ice Cream',
-        description: 'Chocolate & Vanilla',
+        id: 1, name: 'Helados',
+        description: 'Oferta',
         price: '5.25',
         imageSrc: i1
     },
     {
-        id: 2, name: 'Strawberry',
-        description: 'Fresh Strawberries',
-        price: '10.25',
-        imageSrc: f1
-    },
-    {
-        id: 3, name: 'Chicken Kebab',
-        description: 'Mixed Kebab Plate',
+        id: 2, name: 'Postres',
+        description: 'Oferta',
         price: '8.25',
-        imageSrc: c3
+        imageSrc: postreHero1
     },
     {
-        id: 4, name: 'Fish Kebab',
-        description: 'Fish Kebab',
+        id: 3, name: 'Bebidas',
+        description: 'Oferta',
+        price: '10.25',
+        imageSrc: d8
+    },
+    {
+        id: 4, name: 'Rotisería',
+        description: 'Oferta',
         price: '7.25',
-        imageSrc: fi1
+        imageSrc: c7
     }
+    // {
+    //     id: 4, name: 'Rotisería',
+    //     description: 'Oferta',
+    //     price: '7.25',
+    //     imageSrc: c7
+    // },
+    // {
+    //     id: 4, name: 'Rotisería',
+    //     description: 'Oferta',
+    //     price: '7.25',
+    //     imageSrc: c7
+    // }
 ]
 
 export const categories = [

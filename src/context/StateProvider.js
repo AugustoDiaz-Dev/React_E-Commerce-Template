@@ -7,5 +7,5 @@ export const StateProvider = ({ reducer, initialState, children }) => (
         {children}
     </StateContext.Provider>
 );
-
+// This is our custom hook to update the stateValue
 export const useStateValue = () => useContext(StateContext);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-
+// Signin with Google popup
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 
@@ -23,7 +23,7 @@ const Navbar = () => {
         if (!user) {
             const {
                 user: {
-                    // refreshToken, 
+                    refreshToken,
                     providerData },
             } = await signInWithPopup(firebaseAuth, provider);
             dispatch({
@@ -39,7 +39,6 @@ const Navbar = () => {
     const logout = () => {
         setIsMenu(false);
         localStorage.clear();
-
         dispatch({
             type: actionType.SET_USER,
             user: null,
@@ -59,8 +58,8 @@ const Navbar = () => {
             {/* Logo starts */}
             <div className="hidden md:flex w-full h-full items-center justify-between">
                 <Link to={"/"} className="flex items-center gap-2">
-                    <img src={Logo} className="w-8 object-cover" alt="logo" />
-                    <p className="text-headingColor text-xl font-bold">El gusto de Sonia</p>
+                    <img src={Logo} className="w-10 rounded object-cover" alt="Company Logo" />
+                    <p className="text-headingColor text-xl font-bold">¡El gusto de Sonia!</p>
                 </Link>
                 {/* Logo ends */}
                 {/* Links starts */}
@@ -71,14 +70,14 @@ const Navbar = () => {
                         exit={{ opacity: 0, x: 200 }}
                         className="flex items-center gap-24"
                     >
-                        <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-                            <Link to={"/"}>Home</Link>
+                        <li className="text-lg text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer">
+                            <Link to={"/"}>Inicio</Link>
                         </li>
-                        <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-                            <Link to={"/about"}>About Us</Link>
+                        <li className="text-lg text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer">
+                            <Link to={"/about"}>Acerca</Link>
                         </li>
-                        <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-                            <Link to={"/contact"}>Contact</Link>
+                        <li className="text-lg text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer">
+                            <Link to={"/contact"}>Contacto</Link>
                         </li>
                     </motion.ul>
                     {/* Cart starts */}
@@ -99,7 +98,7 @@ const Navbar = () => {
                     {/* Login starts */}
                     <div className="relative">
                         <motion.img
-                            whileTap={{ scale: 0.6 }}
+                            whileTap={{ scale: 0.3 }}
                             src={user ? user.photoURL : Avatar}
                             className="w-10 h-10 min-w-[40px] min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
                             alt="User Avatar"
@@ -110,24 +109,24 @@ const Navbar = () => {
                                 initial={{ opacity: 0, scale: 0.6 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.6 }}
-                                className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
+                                className="w-40 bg-gray-100 shadow-xl rounded-lg flex flex-col absolute top-12 right-1"
                             >
-                                {user && user.email === "vetrivel.galaxy@gmail.com" && (
+                                {user && user.email === "augustordiaz@gmail.com" && (
                                     <Link to={"/createItem"}>
                                         <p
-                                            className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                                            className="px-4 py-2 flex items-center justify-end gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
                                             onClick={() => setIsMenu(false)}
                                         >
-                                            New Item <MdAdd />
+                                            Nuevo Producto<MdAdd className="text-myGreen text-2xl" />
                                         </p>
                                     </Link>
                                 )}
-
+                                <hr />
                                 <p
-                                    className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                                    className="px-4 py-2 flex items-center justify-end gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
                                     onClick={logout}
                                 >
-                                    Logout <MdLogout />
+                                    Terminar Sesión <MdLogout className="text-myRed text-2xl" />
                                 </p>
                             </motion.div>
                         )}
@@ -154,16 +153,16 @@ const Navbar = () => {
                 </div>
 
                 <Link to={"/"} className="flex items-center gap-2">
-                    <img src={Logo} className="w-8 object-cover" alt="logo" />
-                    <p className="text-headingColor text-xl font-bold">Company</p>
+                    <img src={Logo} className="w-10 rounded object-cover" alt="Compamy Logo" />
+                    <p className="text-headingColor text-xl font-bold">¡El gusto de Sonia!</p>
                 </Link>
 
                 <div className="relative">
                     <motion.img
                         whileTap={{ scale: 0.6 }}
                         src={user ? user.photoURL : Avatar}
-                        className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
-                        alt="userprofile"
+                        className="w-10 h-10 min-w-[40px] min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+                        alt="User Avatar"
                         onClick={login}
                     />
                     {isMenu && (
@@ -171,42 +170,42 @@ const Navbar = () => {
                             initial={{ opacity: 0, scale: 0.6 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.6 }}
-                            className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
+                            className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-1"
                         >
-                            {user && user.email === "vetrivel.galaxy@gmail.com" && (
+                            {user && user.email === "augustordiaz@gmail.com" && (
                                 <Link to={"/createItem"}>
-                                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
-                                        New Item <MdAdd />
+                                    <p className="px-4 py-2 flex items-center justify-end gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base">
+                                        Nuevo Producto<MdAdd className="text-myGreen text-2xl" />
                                     </p>
                                 </Link>
                             )}
-
+                            <hr />
                             <ul className="flex flex-col ">
                                 <li
-                                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    className="text-base text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2"
                                     onClick={() => setIsMenu(false)}
                                 >
-                                    <Link to={"/"}>Home</Link>
+                                    <Link to={"/"}>Inicio</Link>
                                 </li>
                                 <li
-                                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    className="text-base text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2"
                                     onClick={() => setIsMenu(false)}
                                 >
-                                    <Link to={"/about"}>About Us</Link>
+                                    <Link to={"/about"}>Acerca</Link>
                                 </li>
                                 <li
-                                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    className="text-base text-textColor hover:text-myGreen hover:font-bold duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-200 px-4 py-2"
                                     onClick={() => setIsMenu(false)}
                                 >
-                                    <Link to={"/contact"}>Contact</Link>
+                                    <Link to={"/contact"}>Contacto</Link>
                                 </li>
                             </ul>
-
+                            <hr />
                             <p
-                                className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
+                                className="m-2 p-2 rounded-md shadow-md flex items-center justify-end gap-3 cursor-pointer bg-slate-100 hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
                                 onClick={logout}
                             >
-                                Logout <MdLogout />
+                                Terminar Sesión <MdLogout className="text-myRed text-2xl" />
                             </p>
                         </motion.div>
                     )}
