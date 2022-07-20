@@ -149,7 +149,6 @@ const CreateContainer = () => {
                     <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Give me a title...' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor' />
                 </div>
 
-
                 <div className='w-full'>
                     <select onChange={(e) => setCategory(e.target.value)} className='outline-none w-full text-base border-b-2 border-gray-200 p-2 rounded-md cursos-pointer'>
                         <option value="other" className='bg-white'>Select Category</option>
@@ -161,7 +160,6 @@ const CreateContainer = () => {
                         ))}
                     </select>
                 </div>
-
 
                 <div className='group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg'>
                     {isLoading ? (

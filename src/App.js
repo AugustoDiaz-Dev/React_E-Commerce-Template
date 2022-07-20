@@ -32,9 +32,9 @@ const App = () => {
                 <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
                     <Routes>
                         <Route path="/*" element={<Home />} />
-                        <Route path="/createItem" element={<CreateContainer />} />
                         <Route path="/about" element={<AboutUs />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/createItem" element={<CreateContainer />} />
                     </Routes>
                 </main>
                 <Footer />
