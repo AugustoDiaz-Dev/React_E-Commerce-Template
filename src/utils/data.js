@@ -17,17 +17,18 @@ export const heroData = [
         imageSrc: postreHero1
     },
     {
-        id: 3, name: 'Bebidas',
-        description: 'Oferta',
-        price: '10.25',
-        imageSrc: d8
-    },
-    {
-        id: 4, name: 'Rotisería',
+        id: 3, name: 'Rotisería',
         description: 'Oferta',
         price: '7.25',
         imageSrc: c7
+    },
+    {
+        id: 4, name: 'Bebidas',
+        description: 'Oferta',
+        price: '10.25',
+        imageSrc: d8
     }
+
     // {
     //     id: 4, name: 'Rotisería',
     //     description: 'Oferta',
@@ -45,42 +46,42 @@ export const heroData = [
 export const categories = [
     {
         id: 1,
-        name: "Chicken",
+        name: "Alimentos",
         urlParamName: "chicken",
     },
     {
         id: 2,
-        name: "Curry",
-        urlParamName: "curry",
+        name: "Frutas y Verduras",
+        urlParamName: "fruitandvegetables",
     },
     {
         id: 3,
-        name: "Rice",
-        urlParamName: "rice",
+        name: "Lácteos",
+        urlParamName: "milkproducts",
     },
     {
         id: 4,
-        name: "Fish",
-        urlParamName: "fish",
+        name: "Bebidas",
+        urlParamName: "drinks",
     },
     {
         id: 5,
-        name: "Fruit",
-        urlParamName: "fruit",
+        name: "Postres",
+        urlParamName: "desserts",
     },
     {
         id: 6,
-        name: "Ice creams",
+        name: "Helados",
         urlParamName: "icecreams",
     },
     {
         id: 7,
-        name: "Deserts",
-        urlParamName: "deserts",
+        name: "Harinas y Pan",
+        urlParamName: "bakery",
     },
     {
         id: 8,
-        name: "Soft Drinks",
-        urlParamName: "drinks",
+        name: "Otros",
+        urlParamName: "various",
     },
 ];

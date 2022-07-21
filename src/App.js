@@ -29,7 +29,7 @@ const App = () => {
         <AnimatePresence exitBeforeEnter>
             <div className="w-screen h-auto flex flex-col bg-primary">
                 <Navbar />
-                <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
+                <main className="mt-14 md:mt-20 px-4 md:px-20 py-8 w-full">
                     <Routes>
                         <Route path="/*" element={<Home />} />
                         <Route path="/about" element={<AboutUs />} />

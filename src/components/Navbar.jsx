@@ -161,7 +161,7 @@ const Navbar = () => {
                     <motion.img
                         whileTap={{ scale: 0.6 }}
                         src={user ? user.photoURL : Avatar}
-                        className="w-10 h-10 min-w-[40px] min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+                        className="mr-1 w-10 h-10 min-w-[40px] min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
                         alt="User Avatar"
                         onClick={login}
                     />

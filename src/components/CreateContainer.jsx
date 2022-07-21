@@ -34,7 +34,7 @@ const CreateContainer = () => {
         }, (error) => {
             console.log(error);
             setFields(true);
-            setMsg('Error while uploading image: Try again : 💩');
+            setMsg('Error al cargar, intente nuevamente 💩');
             setAlertStatus('danger');
             setTimeout(() => {
                 setFields(false)
@@ -45,7 +45,7 @@ const CreateContainer = () => {
                 setImageAsset(downloadURL);
                 setIsLoading(false);
                 setFields(true);
-                setMsg('Image uploaded successfully 🎉');
+                setMsg('¡Imagen Cargada con Éxito! 🎉');
                 setAlertStatus('success');
                 setTimeout(() => {
                     setFields(false)
@@ -61,7 +61,7 @@ const CreateContainer = () => {
             setImageAsset(null);
             setIsLoading(false);
             setFields(true);
-            setMsg("Image deleted successfully 😊");
+            setMsg("Imagen borrada 😊");
             setAlertStatus("success");
             setTimeout(() => {
                 setFields(false);
@@ -74,7 +74,7 @@ const CreateContainer = () => {
         try {
             if (!title || !calories || !imageAsset || !price || !category) {
                 setFields(true);
-                setMsg("Required. Fields can't be empty 🙄");
+                setMsg("Campos obligatorios: ¡NO PUEDEN QUEDAR VACÍOS! 🙄");
                 setAlertStatus("danger");
                 setTimeout(() => {
                     setFields(false);
@@ -93,7 +93,7 @@ const CreateContainer = () => {
                 saveItem(data);
                 setIsLoading(false);
                 setFields(true);
-                setMsg("Data Uploaded successfully 😊");
+                setMsg("¡Información cargada con éxito! 😊");
                 clearData();
                 setAlertStatus("success");
                 setTimeout(() => {
@@ -103,7 +103,7 @@ const CreateContainer = () => {
         } catch (error) {
             console.log(error);
             setFields(true);
-            setMsg("Error while uploading : Try AGain 🙇");
+            setMsg("Error al cargar, inténte de nuevo 🙇");
             setAlertStatus("danger");
             setTimeout(() => {
                 setFields(false);
@@ -118,7 +118,7 @@ const CreateContainer = () => {
         setImageAsset(null);
         setCalories("");
         setPrice("");
-        setCategory("Select Category");
+        setCategory("Seleccione una categoría");
     };
 
     const fetchData = async () => {
@@ -131,27 +131,31 @@ const CreateContainer = () => {
     };
 
     return (
-        <section className='w-full min-h-screen flex items-center justify-center'>
-            <div className='w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4'>
+        <section className='md:w-full lg:w-3/4 m-auto lg:-mt-4 min-h-screen flex items-center justify-center'>
+
+            <div className='w-[90%] md:w-[75%] border-2 border-myGreen rounded-lg p-4 flex flex-col items-center justify-center gap-4'>
+                {/* <h2 className='font-bold text-2xl text-myGreen drop-shadow-lg'>Editar Productos</h2> */}
                 {
                     fields && (
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className={`w-full p-2 rounded-lg text-center text-lg font-semibold ${alertStatus === 'danger' ? 'bg-red-400 text-red-800' : 'bg-emerald-400 text-emerald-800'}`}>
+                            className={`w-full p-2 rounded-lg text-center text-lg font-semibold ${alertStatus === 'danger' ? 'bg-red-400 text-red-800' : 'bg-myGreen text-emerald-800'}`}>
                             {msg}
                         </motion.p>
                     )
                 }
-                <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
-                    <MdFastfood className='text-xl text-gray-700' />
-                    <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Give me a title...' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor' />
+                {/* Inputs Start */}
+                {/* Title input */}
+                <div className='w-full py-2 border-b border-myGreen flex items-center gap-2'>
+                    <MdFastfood className='text-2xl text-myGreen bg-black' />
+                    <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Título...' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor' />
                 </div>
-
+                {/* Select Cagegory */}
                 <div className='w-full'>
-                    <select onChange={(e) => setCategory(e.target.value)} className='outline-none w-full text-base border-b-2 border-gray-200 p-2 rounded-md cursos-pointer'>
-                        <option value="other" className='bg-white'>Select Category</option>
+                    <select onChange={(e) => setCategory(e.target.value)} className='outline-none w-full text-base border-b-2 border-myGreen p-2 rounded-md cursos-pointer'>
+                        <option value="other" className='bg-white text-myGreen font-semibold'>Seleccionar Categoría</option>
                         {categories && categories.map(item => (
                             <option key={item.id} className='text-base border-0 outline-none capitalize bg-white text-headingColor'
                                 value={item.urlParamName}>
@@ -160,8 +164,8 @@ const CreateContainer = () => {
                         ))}
                     </select>
                 </div>
-
-                <div className='group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg'>
+                {/* Upload Images */}
+                <div className='group flex justify-center items-center flex-col border-4 border-dotted border-myGreen w-full h-225 md:h-420 cursor-pointer rounded-lg p-1'>
                     {isLoading ? (
                         <Loader />
                     ) : (
@@ -169,9 +173,9 @@ const CreateContainer = () => {
                             {!imageAsset ? (
                                 <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
                                     <div className="w-full h-full flex flex-col items-center justify-center">
-                                        <MdCloudUpload className="text-gray-500 group-hover:text-gray-700 text-3xl" />
+                                        <MdCloudUpload className="text-myGreen group-hover:text-gray-700 text-3xl" />
                                         <p className="text-gray-500 group-hover:text-gray-700">
-                                            Click here to upload
+                                            Cargar una imagen
                                         </p>
                                     </div>
                                     <input
@@ -187,7 +191,7 @@ const CreateContainer = () => {
                                     <img
                                         src={imageAsset}
                                         alt="upload"
-                                        className="h-full w-full object-cover"
+                                        className="h-full w-full object-cover rounded-lg"
                                     />
                                     <button
                                         type="button"
@@ -202,40 +206,40 @@ const CreateContainer = () => {
                         </>
                     )}
                 </div>
-
+                {/* Calories Input */}
                 <div className="w-full flex flex-col md:flex-row items-center gap-3">
-                    <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-                        <MdFoodBank className="text-gray-700 text-2xl" />
+                    <div className="w-full py-2 border-b border-myGreen flex items-center gap-2">
+                        <MdFoodBank className="text-myGreen bg-black text-2xl" />
                         <input
                             type="text"
                             required
-                            placeholder="Give me calories..."
+                            placeholder="Calorías..."
                             className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-500 text-textColor"
                             value={calories}
                             onChange={(e) => setCalories(e.target.value)}
                         />
                     </div>
-
-                    <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-                        <MdAttachMoney className="text-gray-700 text-2xl" />
+                    {/* Price Input */}
+                    <div className="w-full py-2 border-b border-myGreen flex items-center gap-2">
+                        <MdAttachMoney className="text-myGreen bg-black text-2xl" />
                         <input
                             type="text"
                             required
-                            placeholder="Add the price..."
+                            placeholder="Precio..."
                             className="w-full h-full text-lg  bg-transparent outline-none order-none placeholder:text-gray-500"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
                 </div>
-
+                {/* Save Button */}
                 <div className="flex items-center w-full">
                     <button
                         type="button"
-                        className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
+                        className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-myGreen px-12 py-2 rounded-lg text-lg text-white font-semibold"
                         onClick={saveDetails}
                     >
-                        Save
+                        Guardar
                     </button>
                 </div>
 
