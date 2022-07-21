@@ -1,0 +1,7 @@
+REACT_APP_FIREBASE_API_KEY = "your firebase api key"
+REACT_APP_FIREBASE_AUTH_DOMAIN = "something-11111.firebaseapp.com"
+REACT_APP_FIREBASE_DB_URL = "https://yourappname-11111-default-rtdb.firebaseio.com"
+REACT_APP_FIREBASE_PROJECT_ID = "yourappname-11111"
+REACT_APP_FIREBASE_STORAGE_BUCKET = "yourappname-11111.appspot.com"
+REACT_APP_FIREBASE_MESSAGING_ID = "111111111111"
+REACT_APP_FIREBASE_APP_ID = "1:111111111111:web:f564aa80472cdc777111dc"

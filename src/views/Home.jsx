@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(() => { }, [cartShow]);
 
     return (
-        <section className="w-full h-auto flex flex-col items-center justify-center ">
+        <section className="w-full h-auto flex flex-col items-center justify-center">
             <Header />
 
             <FilteredProducts1 />

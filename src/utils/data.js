@@ -1,74 +1,87 @@
 import i1 from '../img/i1.png'
-import f1 from '../img/f1.png'
-import c3 from '../img/c3.png'
-import fi1 from '../img/fi1.png'
+import d8 from '../img/d8.png'
+import postreHero1 from '../img/postreHero1.png'
+import c7 from '../img/c7.png'
 
 export const heroData = [
     {
-        id: 1, name: 'Ice Cream',
-        description: 'Chocolate & Vanilla',
+        id: 1, name: 'Helados',
+        description: 'Oferta',
         price: '5.25',
         imageSrc: i1
     },
     {
-        id: 2, name: 'Strawberry',
-        description: 'Fresh Strawberries',
-        price: '10.25',
-        imageSrc: f1
-    },
-    {
-        id: 3, name: 'Chicken Kebab',
-        description: 'Mixed Kebab Plate',
+        id: 2, name: 'Postres',
+        description: 'Oferta',
         price: '8.25',
-        imageSrc: c3
+        imageSrc: postreHero1
     },
     {
-        id: 4, name: 'Fish Kebab',
-        description: 'Fish Kebab',
+        id: 3, name: 'Rotisería',
+        description: 'Oferta',
         price: '7.25',
-        imageSrc: fi1
+        imageSrc: c7
+    },
+    {
+        id: 4, name: 'Bebidas',
+        description: 'Oferta',
+        price: '10.25',
+        imageSrc: d8
     }
+
+    // {
+    //     id: 4, name: 'Rotisería',
+    //     description: 'Oferta',
+    //     price: '7.25',
+    //     imageSrc: c7
+    // },
+    // {
+    //     id: 4, name: 'Rotisería',
+    //     description: 'Oferta',
+    //     price: '7.25',
+    //     imageSrc: c7
+    // }
 ]
 
 export const categories = [
     {
         id: 1,
-        name: "Chicken",
+        name: "Alimentos",
         urlParamName: "chicken",
     },
     {
         id: 2,
-        name: "Curry",
-        urlParamName: "curry",
+        name: "Frutas y Verduras",
+        urlParamName: "fruitandvegetables",
     },
     {
         id: 3,
-        name: "Rice",
-        urlParamName: "rice",
+        name: "Lácteos",
+        urlParamName: "milkproducts",
     },
     {
         id: 4,
-        name: "Fish",
-        urlParamName: "fish",
+        name: "Bebidas",
+        urlParamName: "drinks",
     },
     {
         id: 5,
-        name: "Fruit",
-        urlParamName: "fruit",
+        name: "Postres",
+        urlParamName: "desserts",
     },
     {
         id: 6,
-        name: "Ice creams",
+        name: "Helados",
         urlParamName: "icecreams",
     },
     {
         id: 7,
-        name: "Deserts",
-        urlParamName: "deserts",
+        name: "Harinas y Pan",
+        urlParamName: "bakery",
     },
     {
         id: 8,
-        name: "Soft Drinks",
-        urlParamName: "drinks",
+        name: "Otros",
+        urlParamName: "various",
     },
 ];

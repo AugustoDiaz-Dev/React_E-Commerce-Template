@@ -39,8 +39,8 @@ module.exports = {
         620: "620px",
       },
       colors: {
-        primary: "#b6b6b6",
-        textColor: "#101010",
+        primary: "#f2d700",
+        textColor: "#21201f",
         headingColor: "#808080",
         activeText: "#D6230A",
         gradientBg: "rgba(116, 249, 105,0.4)",
@@ -50,7 +50,10 @@ module.exports = {
         cartItem: "#2e3033",
         cartTotal: "#343739",
         cardOverlay: "rgba(256,256,256,0.4)",
-        lightTextGray: "#9ca0ab"
+        lightTextGray: "#9ca0ab",
+        myGreen: "#5ac31a",
+        myRed: "#ff0000",
+        myOrange: "f28330"
       },
       screens: {
         sm: "640px",
