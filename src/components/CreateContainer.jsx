@@ -13,7 +13,7 @@ import { actionType } from '../context/reducer'
 const CreateContainer = () => {
 
     const [title, setTitle] = useState('');
-    const [calories, setCalories] = useState('');
+    const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState(null);
     const [imageAsset, setImageAsset] = useState(null);
@@ -31,10 +31,11 @@ const CreateContainer = () => {
 
         uploadTask.on('state_changed', (snapshot) => {
             const uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + uploadProgress + '% done');
         }, (error) => {
             console.log(error);
             setFields(true);
-            setMsg('Error al cargar, intente nuevamente 💩');
+            setMsg('Error al cargar. Intente nuevamente 💩');
             setAlertStatus('danger');
             setTimeout(() => {
                 setFields(false)
@@ -45,7 +46,7 @@ const CreateContainer = () => {
                 setImageAsset(downloadURL);
                 setIsLoading(false);
                 setFields(true);
-                setMsg('¡Imagen Cargada con Éxito! 🎉');
+                setMsg('¡Imagen cargada con éxito! 🎉');
                 setAlertStatus('success');
                 setTimeout(() => {
                     setFields(false)
@@ -61,7 +62,7 @@ const CreateContainer = () => {
             setImageAsset(null);
             setIsLoading(false);
             setFields(true);
-            setMsg("Imagen borrada 😊");
+            setMsg("Imagen borrada con éxito 😊.");
             setAlertStatus("success");
             setTimeout(() => {
                 setFields(false);
@@ -72,7 +73,7 @@ const CreateContainer = () => {
     const saveDetails = () => {
         setIsLoading(true);
         try {
-            if (!title || !calories || !imageAsset || !price || !category) {
+            if (!title || !description || !imageAsset || !price || !category) {
                 setFields(true);
                 setMsg("Campos obligatorios: ¡NO PUEDEN QUEDAR VACÍOS! 🙄");
                 setAlertStatus("danger");
@@ -86,8 +87,8 @@ const CreateContainer = () => {
                     title: title,
                     imageURL: imageAsset,
                     category: category,
-                    calories: calories,
-                    qty: 1,
+                    description: description,
+                    quantity: 1,
                     price: price,
                 };
                 saveItem(data);
@@ -116,7 +117,7 @@ const CreateContainer = () => {
     const clearData = () => {
         setTitle("");
         setImageAsset(null);
-        setCalories("");
+        setDescription("");
         setPrice("");
         setCategory("Seleccione una categoría");
     };
@@ -125,7 +126,7 @@ const CreateContainer = () => {
         await getAllFoodItems().then((data) => {
             dispatch({
                 type: actionType.SET_FOOD_ITEMS,
-                foodItems: data,
+                foodItems: foodItems ? foodItems : data,
             });
         });
     };
@@ -213,10 +214,10 @@ const CreateContainer = () => {
                         <input
                             type="text"
                             required
-                            placeholder="Calorías..."
+                            placeholder="Descripción..."
                             className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-500 text-textColor"
-                            value={calories}
-                            onChange={(e) => setCalories(e.target.value)}
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
                     {/* Price Input */}

@@ -16,7 +16,7 @@ const App = () => {
         await getAllFoodItems().then((data) => {
             dispatch({
                 type: actionType.SET_FOOD_ITEMS,
-                foodItems: data,
+                foodItems: foodItems ? foodItems : data,
             });
         });
     };

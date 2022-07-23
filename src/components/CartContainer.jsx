@@ -11,7 +11,7 @@ import { CartItem } from "./index";
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
     const [flag, setFlag] = useState(1);
-    const [tot, setTot] = useState(0);
+    const [total, setTot] = useState(0);
 
     const showCart = () => {
         dispatch({
@@ -22,11 +22,11 @@ const CartContainer = () => {
 
     useEffect(() => {
         let totalPrice = cartItems.reduce(function (accumulator, item) {
-            return accumulator + item.qty * item.price;
+            return accumulator + item.quantity * item.price;
         }, 0);
         setTot(totalPrice);
-        console.log(tot);
-    }, [tot, flag]);
+        console.log(total);
+    }, [total, flag]);
 
     const clearCart = () => {
         dispatch({
@@ -46,16 +46,16 @@ const CartContainer = () => {
         >
             <div className="w-full flex items-center justify-between p-4 cursor-pointer">
                 <motion.div whileTap={{ scale: 0.75 }} onClick={showCart}>
-                    <MdOutlineKeyboardBackspace className="text-textColor text-3xl" />
+                    <MdOutlineKeyboardBackspace className="text-myGreen text-3xl" />
                 </motion.div>
-                <p className="text-textColor text-lg font-semibold">Cart</p>
+                <p className="text-textColor text-lg font-semibold">Carrito</p>
 
                 <motion.p
                     whileTap={{ scale: 0.75 }}
-                    className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base"
+                    className="flex items-center gap-2 p-1 px-2 my-2 bg-black rounded-md hover:shadow-md  cursor-pointer text-primary text-base"
                     onClick={clearCart}
                 >
-                    Clear <RiRefreshFill />
+                    Limpiar <RiRefreshFill className="text-black bg-primary" />
                 </motion.p>
             </div>
 
@@ -80,8 +80,8 @@ const CartContainer = () => {
                     {/* Cart total section */}
                     <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
                         <div className="w-full flex items-center justify-between">
-                            <p className="text-gray-400 text-lg">Sub Total</p>
-                            <p className="text-gray-400 text-lg">$ {tot}</p>
+                            <p className="text-gray-400 text-lg">Subtotal</p>
+                            <p className="text-gray-400 text-lg">$ {total}</p>
                         </div>
                         <div className="w-full flex items-center justify-between">
                             <p className="text-gray-400 text-lg">Delivery</p>
@@ -93,7 +93,7 @@ const CartContainer = () => {
                         <div className="w-full flex items-center justify-between">
                             <p className="text-gray-200 text-xl font-semibold">Total</p>
                             <p className="text-gray-200 text-xl font-semibold">
-                                ${tot + 2.5}
+                                ${total + 2.5}
                             </p>
                         </div>
 
@@ -103,7 +103,7 @@ const CartContainer = () => {
                                 type="button"
                                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                             >
-                                Check Out
+                                Pagar
                             </motion.button>
                         ) : (
                             <motion.button
@@ -111,7 +111,7 @@ const CartContainer = () => {
                                 type="button"
                                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                             >
-                                Login to check out
+                                Iniciar Sesión para pagar
                             </motion.button>
                         )}
                     </div>
@@ -120,7 +120,7 @@ const CartContainer = () => {
                 <div className="w-full h-full flex flex-col items-center justify-center gap-6">
                     <img src={EmptyCart} className="w-300" alt="" />
                     <p className="text-xl text-textColor font-semibold">
-                        Add some items to your cart
+                        Agregar productos
                     </p>
                 </div>
             )}
