@@ -50,6 +50,7 @@ module.exports = {
         cartItem: "#2e3033",
         cartTotal: "#343739",
         cardOverlay: "rgba(256,256,256,0.4)",
+        cardOverlayBlack: "rgba(0,0,0,0.9)",
         lightTextGray: "#9ca0ab",
         myGreen: "#5ac31a",
         myRed: "#ff0000",
@@ -64,7 +65,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwind-scrollbar"),
-  ],
+  plugins: [require('tailwind-scrollbar'),]
 };
