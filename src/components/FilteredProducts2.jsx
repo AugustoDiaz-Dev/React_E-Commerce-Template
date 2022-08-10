@@ -8,7 +8,7 @@ import { useStateValue } from "../context/StateProvider";
 const FilteredProducts2 = () => {
     const [filter, setFilter] = useState("drinks");
 
-    const [{ foodItems }] = useStateValue();
+    const [{ foodItems }, dispatch] = useStateValue();
 
     return (
         <section className="w-full my-6" id="menu">

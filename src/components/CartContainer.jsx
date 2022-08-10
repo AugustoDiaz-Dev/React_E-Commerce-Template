@@ -11,7 +11,7 @@ import { CartItem } from "./index";
 const CartContainer = () => {
     const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
     const [flag, setFlag] = useState(1);
-    const [total, setTot] = useState(0);
+    const [total, setTotal] = useState(0);
 
     const showCart = () => {
         dispatch({
@@ -24,13 +24,13 @@ const CartContainer = () => {
         let totalPrice = cartItems.reduce(function (accumulator, item) {
             return accumulator + item.quantity * item.price;
         }, 0);
-        setTot(totalPrice);
+        setTotal(totalPrice);
         console.log(total);
-    }, [total, flag]);
+    }, [total, flag, cartItems]); // cartItems was missing dependency. Check is working fine.
 
     const clearCart = () => {
         dispatch({
-            type: actionType.SET_CARTITEMS,
+            type: actionType.SET_CART_ITEMS,
             cartItems: [],
         });
 

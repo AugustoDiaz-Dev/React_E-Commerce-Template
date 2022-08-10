@@ -16,7 +16,7 @@ const ContactForm = () => {
     }
 
     return (
-        <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit}>
+        <form className='flex flex-col items-center justify-center xl:w-2/4 m-auto' onSubmit={handleSubmit}>
             <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Name" className='m-2 p-2 rounded' />
             <input type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" className='m-2 p-2 rounded' />
             <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className='m-2 p-2 rounded' />
