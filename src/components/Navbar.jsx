@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
+import { MdAdd, MdLogout } from "react-icons/md";
+import { BsCartCheck } from "react-icons/bs";
 import { motion } from "framer-motion";
 // Signin with Google popup
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -23,7 +24,7 @@ const Navbar = () => {
         if (!user) {
             const {
                 user: {
-                    refreshToken,
+                    // refreshToken,
                     providerData },
             } = await signInWithPopup(firebaseAuth, provider);
             dispatch({
@@ -85,7 +86,7 @@ const Navbar = () => {
                         className="relative flex items-center justify-center"
                         onClick={showCart}
                     >
-                        <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
+                        <BsCartCheck className="text-textColor text-2xl cursor-pointer" />
                         {cartItems && cartItems.length > 0 && (
                             <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
                                 <p className="text-xs text-white font-semibold">
@@ -142,7 +143,7 @@ const Navbar = () => {
                     className="relative flex items-center justify-center"
                     onClick={showCart}
                 >
-                    <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
+                    <BsCartCheck className="text-textColor text-2xl mr-2 cursor-pointer" />
                     {cartItems && cartItems.length > 0 && (
                         <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
                             <p className="text-xs text-myGreen font-bold">
@@ -152,9 +153,9 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <Link to={"/"} className="flex items-center gap-2">
-                    <img src={Logo} className="w-10 rounded object-cover" alt="Compamy Logo" />
-                    <p className="text-headingColor text-xl font-bold">¡El gusto de Sonia!</p>
+                <Link to={"/"} className="flex items-center justify-center gap-2">
+                    <img src={Logo} className="w-10 rounded object-cover" alt="Company Logo" />
+                    {/* <p className="text-headingColor text-xl font-bold text-center">¡El gusto de Sonia!</p> */}
                 </Link>
 
                 <div className="relative">

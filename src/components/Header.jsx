@@ -1,6 +1,5 @@
 import React from 'react'
 import { heroData } from '../utils/data'
-import delivery from '../img/delivery.png'
 import heroBg from '../img/heroBg.png'
 
 const Header = () => {
@@ -18,13 +17,7 @@ const Header = () => {
                     ¡Veni a visitarnos! Estamos en  Av. 7 de Marzo 2808.
                 </p>
 
-                <button type='button' className='bg-gradient-to-br from-slate-300 to-black text-primary w-1/4 md:w-auto px-4 py-2 rounded-lg hover:shadow-xl transition-all ease-in-out duration-100 mb-2'>Contacto</button>
-                {/* <div className='flex items-center gap-2 justify-start bg-myGreen w-auto px-3 py-1 rounded-full'>
-                        <p className='text-base text-black font-semibold'>Envíos a domicilio</p>
-                        <div className='w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl'>
-                            <img src={delivery} className='w-full h-full object-contain' alt='Delivery' />
-                        </div>
-                    </div> */}
+                <button type='button' className='bg-gradient-to-br from-slate-300 to-black text-primary w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-xl transition-all ease-in-out duration-100 mb-2'>Contacto</button>
             </div>
             {/* Title ends */}
             {/* Pictures start */}
@@ -34,7 +27,7 @@ const Header = () => {
                 {/* <img src={heroBg} className='ml-auto h-420 w-full lg:w-auto lg-:h-650' alt='hero' /> */}
                 {/* Background Hero ends */}
                 {/* Static Cards Hero start */}
-                <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32 py-4 gap-4 flex-wrap'>
+                <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32 py-4 gap-4 xl:px-0 xl:gap-10 flex-wrap'>
                     {heroData && heroData.map(item => (
                         <div
                             key={item.id}
