@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from "framer-motion";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useStateValue } from "../context/StateProvider";
 import RowContainer from "./RowContainer";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const FilteredProducts1 = () => {
 
@@ -38,7 +38,7 @@ const FilteredProducts1 = () => {
             <RowContainer
                 scrollValue={scrollValue}
                 flag={true}
-                data={foodItems?.filter((n) => n.category === "drinks")}
+                data={foodItems?.filter((n) => n.category === "food")}
             />
         </section>
     )
