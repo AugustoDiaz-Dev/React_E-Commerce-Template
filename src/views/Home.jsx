@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useStateValue } from "../context/StateProvider";
 
 import { Header, FilteredProducts2, CartContainer, FilteredProducts1 } from "../components/index";

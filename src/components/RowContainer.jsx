@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MdShoppingBasket } from "react-icons/md";
-import { motion } from "framer-motion";
-import NotFound from "../img/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import NotFound from "../img/NotFound.svg";
+import { MdShoppingBasket } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
     const rowContainer = useRef();
@@ -45,7 +45,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                         <div className="w-full flex items-center justify-between">
                             <motion.div
                                 className="w-40 h-40 -mt-8 drop-shadow-2xl"
-                                whileTap={{ scale: 1.5 }}
+                                whileTap={{ scale: 2 }}
                             >
                                 <img
                                     src={item?.imageURL}
@@ -67,7 +67,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                                 {item?.title}
                             </p>
                             <p className="mt-1 text-sm text-primary">
-                                {item?.calories}
+                                {item?.description}
                             </p>
                             <div className="flex items-center gap-8">
                                 <p className="text-lg text-white font-semibold">

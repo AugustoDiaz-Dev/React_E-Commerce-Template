@@ -4,7 +4,7 @@ import heroBg from '../img/heroBg.png'
 
 const Header = () => {
     return (
-        <header className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-10 mb-12' id='home'> {/* maybe change it to the Home Component??? */}
+        <header className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-10 mb-12' id='home'>
             {/* Title starts */}
             <div className='py-2 flex-1 flex flex-col items-start md:items-center justify-center gap-6'>
 
@@ -14,7 +14,7 @@ const Header = () => {
                 </p>
 
                 <p className='text-base text-textColor text-center md:w-[80%] font-semibold'>
-                    ¡Veni a visitarnos! Estamos en  Av. 7 de Marzo 2808.
+                    ¡Veni a visitarnos! Estamos en  Av. 7 de Marzo 2808!
                 </p>
 
                 <button type='button' className='bg-gradient-to-br from-slate-300 to-black text-primary w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-xl transition-all ease-in-out duration-100 mb-2'>Contacto</button>
@@ -24,7 +24,6 @@ const Header = () => {
             <div className='py-2 flex-1 flex items-center relative'>
                 {/* Background Hero starts */}
                 <img src={heroBg} className='ml-auto h-420 w-full lg:w-auto lg:h-650 lg:hidden' alt='Hero background' />
-                {/* <img src={heroBg} className='ml-auto h-420 w-full lg:w-auto lg-:h-650' alt='hero' /> */}
                 {/* Background Hero ends */}
                 {/* Static Cards Hero start */}
                 <div className='w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32 py-4 gap-4 xl:px-0 xl:gap-10 flex-wrap'>
